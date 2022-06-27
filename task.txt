@@ -1,0 +1,8 @@
+step1: install packages
+step2: constants define
+step3: async action creator
+step 4: reducer
+step5: create store
+step6; provide store
+step7: use store
+step8:adding css
