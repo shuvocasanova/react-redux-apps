@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { INCREMENT } from "../constants/CounterConstants";
 import {
-  decrementCounter,
-  incrementCounter,
-} from "../store/actions/CounterActions";
+  decrement,
+  increment,
+  incrementByValue,
+} from "../app/features/counter/counterSlice";
 
 const Counter = () => {
-  const count = useSelector((state) => state.count);
+  const count = useSelector((state) => state.counter.count);
+
   const dispatch = useDispatch();
 
   const handleAdd = () => {
-    dispatch({ type: INCREMENT });
+    dispatch(increment());
   };
 
   const handleSubtract = () => {
     if (count > 0) {
-      dispatch(decrementCounter());
+      dispatch(decrement());
     }
   };
   return (
@@ -26,6 +27,13 @@ const Counter = () => {
       <p>{count}</p>
       <button onClick={handleAdd}>+</button>
       <button onClick={handleSubtract}>-</button>
+      <button
+        onClick={() => {
+          dispatch(incrementByValue(10));
+        }}
+      >
+        AddBy 10
+      </button>
     </div>
   );
 };

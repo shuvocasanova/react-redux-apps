@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <h1>Welcome to React Redux app</h1>
-      <Todos/>
+      <Counter />
     </div>
   );
 }
