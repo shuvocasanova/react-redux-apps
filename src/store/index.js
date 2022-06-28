@@ -1,5 +1,8 @@
-import {createStore} from 'redux'
-import CounterReducers from './reducers/CounterReducers'
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
-export const store = createStore(CounterReducers)
+import todosReducer from "./reducers/todosReducer";
 
+ const store = createStore(todosReducer, applyMiddleware(thunk));
+
+ export default store;
